@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="浅作序">
 <meta property="og:description" content="Linux系统下的mysql5.7安装及Navicat连接教程 安装操作：1. 安装mysql的yum源  a. 下载配置mysql的yum源的rpm包,使用以下命令获取rpm文件：1wget https://dev.mysql.com/get/mysql57-community-release-el6-9.noarch.rpm   b 安装用来配置mysql的yum源的rpm包1rpm -Uvh">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-06T02:37:00.091Z">
+<meta property="og:updated_time" content="2018-06-06T02:40:16.427Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux安装mysql5.7">
 <meta name="twitter:description" content="Linux系统下的mysql5.7安装及Navicat连接教程 安装操作：1. 安装mysql的yum源  a. 下载配置mysql的yum源的rpm包,使用以下命令获取rpm文件：1wget https://dev.mysql.com/get/mysql57-community-release-el6-9.noarch.rpm   b 安装用来配置mysql的yum源的rpm包1rpm -Uvh">
@@ -303,8 +303,7 @@
         <h3 id="Linux系统下的mysql5-7安装及Navicat连接教程"><a href="#Linux系统下的mysql5-7安装及Navicat连接教程" class="headerlink" title="Linux系统下的mysql5.7安装及Navicat连接教程"></a>Linux系统下的mysql5.7安装及Navicat连接教程</h3><hr>
 <h4 id="安装操作："><a href="#安装操作：" class="headerlink" title="安装操作："></a>安装操作：</h4><h4 id="1-安装mysql的yum源"><a href="#1-安装mysql的yum源" class="headerlink" title="1. 安装mysql的yum源"></a>1. 安装mysql的yum源</h4><p>  <strong>a. 下载配置mysql的yum源的rpm包,使用以下命令获取rpm文件：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://dev.mysql.com/get/mysql57-community-release-el6-9.noarch.rpm</span><br></pre></td></tr></table></figure></p>
 <p>  <strong>b 安装用来配置mysql的yum源的rpm包</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -Uvh mysql57-community-release-el6-9.noarch.rpm</span><br></pre></td></tr></table></figure></p>
-<pre><code>**或使用：**
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -Uvh mysql57-community-release-el6-9.noarch.rpm</span><br></pre></td></tr></table></figure>
+<p><strong>或使用：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -Uvh mysql57-community-release-el6-9.noarch.rpm</span><br></pre></td></tr></table></figure></p>
 <h4 id="2-安装mysql"><a href="#2-安装mysql" class="headerlink" title="2. 安装mysql"></a>2. 安装mysql</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install mysql-community-server</span><br></pre></td></tr></table></figure>
 <h4 id="3-开启mysql服务"><a href="#3-开启mysql服务" class="headerlink" title="3. 开启mysql服务"></a>3. 开启mysql服务</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysqld start</span><br></pre></td></tr></table></figure>
 <h4 id="4-查看mysql的运行状态"><a href="#4-查看mysql的运行状态" class="headerlink" title="4. 查看mysql的运行状态"></a>4. 查看mysql的运行状态</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysqld status</span><br></pre></td></tr></table></figure>
@@ -365,13 +364,12 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/sysconfig/iptables</span><br></pre></td></tr></table></figure>
 <ul>
-<li>按Insert键<br>在这下面<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-A INPUT -m state –state NEW -m tcp -p tcp –dport 3306 -j ACCEPT</span><br></pre></td></tr></table></figure>
+<li>按Insert键，找到下面的代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-A INPUT -m state –state NEW -m tcp -p tcp –dport 3306 -j ACCEPT</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-A INPUT -m state --state NEW -m tcp -p tcp --dport 3306 -j ACCEPT</span><br></pre></td></tr></table></figure></p>
+<p>在后面添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-A INPUT -m state --state NEW -m tcp -p tcp --dport 3306 -j ACCEPT</span><br></pre></td></tr></table></figure></p>
 <ul>
-<li>按Esc键</li>
-<li>按Shift+:<br>输入wq!，保存并退出<h5 id="7-3-如果使用远程登陆出错，解决方法将localhost改为"><a href="#7-3-如果使用远程登陆出错，解决方法将localhost改为" class="headerlink" title="7.3 如果使用远程登陆出错，解决方法将localhost改为%"></a>7.3 如果使用远程登陆出错，解决方法将localhost改为%</h5>代码如下</li>
+<li>输入wq!，保存并退出<h5 id="7-3-如果使用远程登陆出错，解决方法将localhost改为"><a href="#7-3-如果使用远程登陆出错，解决方法将localhost改为" class="headerlink" title="7.3 如果使用远程登陆出错，解决方法将localhost改为%"></a>7.3 如果使用远程登陆出错，解决方法将localhost改为%</h5>代码如下</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br><span class="line">mysql&gt;use mysql;</span><br><span class="line">mysql&gt;update user set host =’%&apos;where user =’root’;</span><br><span class="line">mysql&gt;flush privileges;</span><br></pre></td></tr></table></figure>
 <h5 id="腾讯云配置完成！"><a href="#腾讯云配置完成！" class="headerlink" title="腾讯云配置完成！"></a>腾讯云配置完成！</h5><h4 id="8-阿里服务器操作方法："><a href="#8-阿里服务器操作方法：" class="headerlink" title="8.阿里服务器操作方法："></a>8.阿里服务器操作方法：</h4><h5 id="8-1-由于阿里云默认不会开启3306端口，我们需要在阿里云的云服务器管理控制台的网络与安全中选择安全组。"><a href="#8-1-由于阿里云默认不会开启3306端口，我们需要在阿里云的云服务器管理控制台的网络与安全中选择安全组。" class="headerlink" title="8.1 由于阿里云默认不会开启3306端口，我们需要在阿里云的云服务器管理控制台的网络与安全中选择安全组。"></a>8.1 由于阿里云默认不会开启3306端口，我们需要在阿里云的<strong>云服务器管理控制台</strong>的<strong>网络与安全</strong>中选择<strong>安全组</strong>。</h5><h5 id="8-2-点击配置规则，之后选择添加安全组规则。"><a href="#8-2-点击配置规则，之后选择添加安全组规则。" class="headerlink" title="8.2 点击配置规则，之后选择添加安全组规则。"></a>8.2 点击<strong>配置规则</strong>，之后选择添加<strong>安全组规则</strong>。</h5><h5 id="8-3-端口范围填写3306-3306。"><a href="#8-3-端口范围填写3306-3306。" class="headerlink" title="8.3 端口范围填写3306/3306。"></a>8.3 端口范围填写<strong>3306/3306</strong>。</h5><h5 id="8-4-授权对象填写0-0-0-0-0。"><a href="#8-4-授权对象填写0-0-0-0-0。" class="headerlink" title="8.4 授权对象填写0.0.0.0/0。"></a>8.4 授权对象填写<strong>0.0.0.0/0</strong>。</h5><h5 id="阿里云配置完成！"><a href="#阿里云配置完成！" class="headerlink" title="阿里云配置完成！"></a>阿里云配置完成！</h5>
