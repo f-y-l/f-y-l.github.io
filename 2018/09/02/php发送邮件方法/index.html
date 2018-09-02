@@ -92,7 +92,7 @@
 <meta property="og:image" content="http://service.mail.qq.com/images/faq/CF53747E-4FC8-4907-8550-F6A65B96BA07.jpeg">
 <meta property="og:image" content="http://www.gether.cn/mdimage/phpmailer/1.png">
 <meta property="og:image" content="http://www.gether.cn/mdimage/phpmailer/2.png">
-<meta property="og:updated_time" content="2018-09-02T12:47:09.264Z">
+<meta property="og:updated_time" content="2018-09-02T12:50:27.188Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="thinkPHP发送邮件">
 <meta name="twitter:description" content="thinkPHP发送邮件1. 使用composer安装phpmailer组件 进入Packmailer官网，搜索phpmailer组件。  在项目目录下使用命令composer require phpmailer/phpmailer安装组件。  安装成功后，你就可以找到vendor/phpmailer文件夹。   在 Packmailer官网的phpmailer 页面找到： A Simple Ex">
@@ -342,7 +342,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,483
+                  1,422
                 </span>
               
 
@@ -400,13 +400,37 @@
 </li>
 <li><p>！！！<strong>尽然报错了？！</strong></p>
 <ol>
-<li><p>坑点1：<figure class="highlight plain"><figcaption><span>missing: openssl.```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- [解决方法](https://www.cnblogs.com/phpxuetang/p/5656266.html)：</span><br><span class="line"></span><br><span class="line">  &gt;**什么是openssl？**</span><br><span class="line">  &gt;&gt;</span><br><span class="line">  &gt;关于openssl，我说的不如百度百科齐全，还是看看百度百科的解释吧！&lt;http://baike.baidu.com/view/300712.htm&gt;</span><br><span class="line">  &gt;</span><br><span class="line">  &gt;**php开启openssl的方法，大多数情况下openssl是没有开启的，要想启用需要进行下简单的设置：**</span><br><span class="line">  &gt;&gt;**windows下开启方法：**</span><br><span class="line">  &gt;&gt;</span><br><span class="line">  &gt;&gt;1. 找到 php安装目录\PHPTutorial\php\对应版本\php.ini</span><br><span class="line">  &gt;&gt;2. 首先检查php.ini中```；extension=php_openssl.dll```是否存在， 如果存在的话去掉前面的注释符‘**；**’， 如果不存在这行，那么添加```extension=php_openssl.dll```。</span><br><span class="line">  &gt;&gt;3. 将下的： php_openssl.dll， ssleay32.dll， libeay32.dll 3个文件拷贝到 WINDOWS\system32\ 文件夹下。</span><br><span class="line">  &gt;&gt;4. 如果没有 php_openssl.dll ，点击下载 [php_openssl.dll](http://www.haorooms.com/uploads/js/php_openssl%28haorooms.com%29.rar)。</span><br><span class="line">  &gt;&gt;5. 下载下来有很多个php_openssl，找到你相应php版本下面的php_openssl。</span><br><span class="line">  &gt;&gt;</span><br><span class="line">  &gt;&gt;查看php版本可以用如下代码：</span><br><span class="line">  &gt;&gt;</span><br><span class="line">  &gt;&gt;</span><br></pre></td></tr></table></figure></p>
-<p>  &lt;?php<br>  phpinfo();<br>  ?&gt;</p>
+<li><p>坑点1：<code>Extension missing: openssl.</code></p>
+<ul>
+<li><p><a href="https://www.cnblogs.com/phpxuetang/p/5656266.html" target="_blank" rel="noopener">解决方法</a>：</p>
 <blockquote>
+<p><strong>什么是openssl？</strong></p>
 <blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">     &gt;&gt;</span><br><span class="line">     &gt;&gt;找到相应版本之后，按照上面讲的第二步来就可以了。</span><br><span class="line">     &gt;&gt;</span><br><span class="line">     &gt;&gt;5. 重启apache或者iis，至此，openssl功能就开启了。</span><br><span class="line"></span><br><span class="line">2. 坑点2：```SMTP connect() failed.</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>关于openssl，我说的不如百度百科齐全，还是看看百度百科的解释吧！<a href="http://baike.baidu.com/view/300712.htm" target="_blank" rel="noopener">http://baike.baidu.com/view/300712.htm</a></p>
+<p><strong>php开启openssl的方法，大多数情况下openssl是没有开启的，要想启用需要进行下简单的设置：</strong></p>
+<blockquote>
+<p><strong>windows下开启方法：</strong></p>
+<ol>
+<li>找到 php安装目录\PHPTutorial\php\对应版本\php.ini</li>
+<li>首先检查php.ini中<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;3. 将下的： php_openssl.dll， ssleay32.dll， libeay32.dll 3个文件拷贝到 WINDOWS\system32\ 文件夹下。</span><br><span class="line">&gt;&gt;4. 如果没有 php_openssl.dll ，点击下载 [php_openssl.dll](http://www.haorooms.com/uploads/js/php_openssl%28haorooms.com%29.rar)。</span><br><span class="line">&gt;&gt;5. 下载下来有很多个php_openssl，找到你相应php版本下面的php_openssl。</span><br><span class="line">&gt;&gt;</span><br><span class="line">&gt;&gt;查看php版本可以用如下代码：</span><br><span class="line">&gt;&gt;</span><br><span class="line">&gt;&gt;</span><br></pre></td></tr></table></figure></li>
+</ol>
 </blockquote>
 </blockquote>
+<p>&lt;?php<br>phpinfo();<br>?&gt;</p>
+<blockquote>
+<blockquote>
+<p><code>`</code></p>
+<p>找到相应版本之后，按照上面讲的第二步来就可以了。</p>
+<ol start="5">
+<li>重启apache或者iis，至此，openssl功能就开启了。</li>
+</ol>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>坑点2：<code>SMTP connect() failed.</code></p>
 <ol>
 <li><p><a href="http://service.mail.qq.com/cgi-bin/help?subtype=1&amp;&amp;id=28&amp;&amp;no=369" target="_blank" rel="noopener">配置QQ邮件服务器和端口号</a>:</p>
 <blockquote>
