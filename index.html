@@ -338,7 +338,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,422
+                  1,440
                 </span>
               
 
@@ -411,14 +411,15 @@
 <p><strong>windows下开启方法：</strong></p>
 <ol>
 <li>找到 php安装目录\PHPTutorial\php\对应版本\php.ini</li>
-<li>首先检查php.ini中<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;3. 将下的： php_openssl.dll， ssleay32.dll， libeay32.dll 3个文件拷贝到 WINDOWS\system32\ 文件夹下。</span><br><span class="line">&gt;&gt;4. 如果没有 php_openssl.dll ，点击下载 [php_openssl.dll](http://www.haorooms.com/uploads/js/php_openssl%28haorooms.com%29.rar)。</span><br><span class="line">&gt;&gt;5. 下载下来有很多个php_openssl，找到你相应php版本下面的php_openssl。</span><br><span class="line">&gt;&gt;</span><br><span class="line">&gt;&gt;查看php版本可以用如下代码：</span><br><span class="line">&gt;&gt;</span><br><span class="line">&gt;&gt;</span><br></pre></td></tr></table></figure></li>
+<li>首先检查php.ini中<code>；extension=php_openssl.dll</code>是否存在， 如果存在的话去掉前面的注释符‘<strong>；</strong>’， 如果不存在这行，那么添加<code>extension=php_openssl.dll</code>。</li>
+<li>将下的： php_openssl.dll， ssleay32.dll， libeay32.dll 3个文件拷贝到 WINDOWS\system32\ 文件夹下。</li>
+<li>如果没有 php_openssl.dll ，点击下载 <a href="http://www.haorooms.com/uploads/js/php_openssl%28haorooms.com%29.rar" target="_blank" rel="noopener">php_openssl.dll</a>。</li>
+<li>下载下来有很多个php_openssl，找到你相应php版本下面的php_openssl。</li>
 </ol>
-</blockquote>
-</blockquote>
-<p>&lt;?php<br>phpinfo();<br>?&gt;</p>
-<blockquote>
-<blockquote>
-<p><code>`</code></p>
+<p>查看php版本可以用如下代码：</p>
+<p><code>&lt;?php
+phpinfo();
+?&gt;</code></p>
 <p>找到相应版本之后，按照上面讲的第二步来就可以了。</p>
 <ol start="5">
 <li>重启apache或者iis，至此，openssl功能就开启了。</li>
